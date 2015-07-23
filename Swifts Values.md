@@ -30,7 +30,7 @@ NSString / NSMutableString
 ---
 - Differences between Value / Reference Types
 - Immutability in Swift
-- Taking advantage of Value Types
+- Using Value Types
 
 ^ Partiré señalando las diferencias entre trabajar con Value Types y Reference Types.
 ^ Luego hablaré de los beneficios de desarrollar pensando en la inmutabilidad
@@ -141,7 +141,7 @@ a.x = 20 // Compilation error
 ^ Es por esto que es necesario utilizar var en vez de let, porque no cambiará solo el valor interno que se está modificando, sino toda la struct.
 
 ---
-# Taking advantage of Value Types
+# Using Value Types
 
 ^ Entonces, ¿cómo podemos aprovechar la utilización de valores en nuestra app?
 
@@ -212,6 +212,22 @@ a == b // false
 ```
 ^ Los valores son inherentemente comparables.
 ^ Si tenemos un string, esperamos que se comporte de esta manera, independiente donde esté alojado en memoria.
+
+---
+## How?
+```swift
+struct Point: Equatable {
+    let x: Int, y: Int
+}
+
+func ==(lhs: Point, rhs: Point) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y
+}
+```
+
+^ Simplemente necesitamos adherir al protocolo Equatable en Swift.
+^ Equatable nos pide que implementemos una sola función la que tiene dos valores como entrada, y un booleano como salida.
+^ Un punto es igual a otro solo si su valor x y su valor y es igual al del otro punto.
 
 ---
 # [fit] When to use Classes?
@@ -336,7 +352,7 @@ func configure(boardViewModel: BoardViewModel)
 ^ Lo que creará un nuevo BoardViewModel, que será pasado al BoardView para ser configurado.
 
 ---
-![](img/result.jpg)
+![](img/MVVM-updates.jpg)
 
 ---
 ## Only update what *changed*
@@ -352,7 +368,7 @@ func configure(boardViewModel: BoardViewModel)
 ---
 
 # They're Values
-...and you can *compare* values easily :boom:
+...and you can *compare* values easily
 
 ```swift
 func configure(cellViewModel: CellViewModel) {
@@ -363,9 +379,12 @@ func configure(cellViewModel: CellViewModel) {
 ```
 
 ---
+![](img/result.jpg)
+
+---
 - Differences between Value / Reference Types
 - Immutability in Swift
-- How to take advantage of Value Types
+- Using Value Types
 
 ---
 # Resources:
@@ -379,6 +398,6 @@ func configure(cellViewModel: CellViewModel) {
 [Immutable Data and React by Lee Byron](https://www.youtube.com/watch?v=I7IdS-PbEgI)
 
 ---
-# [fit] Thanks
+# [fit] That's a wrap!
 Slides available at:
 [https://github.com/fdiaz/swift-values-talk](https://github.com/fdiaz/sisifo-talk)
