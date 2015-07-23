@@ -398,6 +398,6 @@ func configure(cellViewModel: CellViewModel) {
 [Immutable Data and React by Lee Byron](https://www.youtube.com/watch?v=I7IdS-PbEgI)
 
 ---
-# [fit] That's a wrap!
+# [fit] Thanks!
 Slides available at:
-[https://github.com/fdiaz/swift-values-talk](https://github.com/fdiaz/sisifo-talk)
+[https://github.com/fdiaz/swift-values-talk](https://github.com/fdiaz/swift-values-talk)
